@@ -13,6 +13,46 @@ The algorithm then iteratively slides a window of a given size across the image.
 
 The coordinates are saved into a table that will be used for further operations. If a header with WCS information is given, the right ascension and declination of the objects are also given. Also a figure of the field with the identified objects marked will also be optionally produced. 
 
+```
+from astropy.io import fits
+import numpy as np
+from glob import glob
+import pandas as pd
+import spectral_index as spec
+import os
+
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+# Open images
+filepath = '.'
+
+dat_files = glob(filepath + '/vlass_sample/*.tt0.subim.fits')
+
+# Open minimum frequency image
+im  = np.squeeze(fits.open(dat_files[7])[0].data)   
+header = fits.open(dat_files[7])[0].header
+
+# Run Object detection algorithm on the lowest Frequency image.
+
+# Define a threshold to identify objects from.
+# In this case I chose to set the threshold at 10 sigma over the image's mean value.
+sigma = 10
+
+# The algorithm will use a search window that iteratively passes over the image. 
+# If pixels are found over the above threshold, a centroiding algorithm will be run to extract the object's center.
+#
+# The Search window should be large enough to capture an object, 
+# but not so large that it will capture several objects in a single frame.
+x_win, y_win = 200, 200
+
+# The code will write a table with object positions to the given filepath.
+# If a header with wcs information is provided, the code will calculate the RA and Dec of the objects.
+# If fig = True, an image with the identified objects overlaid will be produced.
+
+spec.findobj.finder(image = im, sigma = sigma, x_win = x_win, y_win = y_win, outpath = filepath, header=header, fig=True)
+```
+
 |	| objid	| xcoord	| ycoord |	ra	| dec |
 |-|-------|---------|--------|------|-----|
 |0|obj-1|	272.5590045|	1334.659359|	53.70636361|	-36.79323846|
