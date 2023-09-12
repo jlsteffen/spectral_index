@@ -71,7 +71,7 @@ If the figure function is enabled, the following figure is produced highlighting
 
 ### Flux Extraction
 
-After a table of object is identified, the module can be used to extract fluxes for the objects. The function uses a circular aperture of a given radius. The function loops over each frequency frame given and each object identified and extracts the object's flux. The flux and frequency for each object is then saved into a table so that the spectral index can later by calculated.
+After a table of object is identified, the module can be used to extract fluxes for the objects. The function uses a circular aperture of a given radius. The function loops over each frequency frame given and each object identified and extracts the object's flux. The flux is taken as the sum of the values within the aperture times the number of pixels used. The flux and frequency for each object is then saved into a table so that the spectral index can later by calculated.
 
 An example of the flux extraction is shown below;
 ```
