@@ -13,6 +13,7 @@ The algorithm then iteratively slides a window of a given size across the image.
 
 The coordinates are saved into a table that will be used for further operations. If a header with WCS information is given, the right ascension and declination of the objects are also given. Also a figure of the field with the identified objects marked will also be optionally produced. 
 
+An example of the object identification is shown below;
 ```
 from astropy.io import fits
 import numpy as np
@@ -70,6 +71,42 @@ If the figure function is enabled, the following figure is produced highlighting
 
 ### Flux Extraction
 
+After a table of object is identified, the module can be used to extract fluxes for the objects. The function uses a circular aperture of a given radius. The function loops over each frequency frame given and each object identified and extracts the object's flux. The flux and frequency for each object is then saved into a table so that the spectral index can later by calculated.
+
+An example of the flux extraction is shown below;
+```
+# Extract fluxes from the identified objects.
+
+# The code will loop over each frequency frame and each object identified and extract the flux
+# for each object at each frequency. 
+
+# first define a list of files to loop over. Each file should be an image taken at a different frequency.
+files = dat_files
+
+# The provide the table of the objects with their coordinates
+table = pd.read_csv('objects.csv', delimiter=',', index_col=0)
+
+# Define the radius of the circular aperture to extract the fluxes from
+radius = 50
+
+# The code will write tables containing the frequencies and fluxes for each object.
+# Provide a filepath to save these table to.
+outpath = filepath + '/objects'
+if not os.path.exists(outpath):
+    os.makedirs(outpath)
+
+spec.extract_flux.extract_objects(files = files, table = table, radius = radius, outpath = outpath)
+```
+The script produces a table like the one below for each identified object.
+
+| |      frequency |         flux |
+|-|----------------|--------------|
+|0|   3.308007e+09 |  6451.352935 |
+|1|   2.412005e+09 | 17333.243388 |
+|2|   2.156004e+09 | 23178.419305 |
+|3|  2.796006e+09 | 12489.795790 |
+|4|   3.564007e+09 |  5578.265733 |
+|-|----------------|--------------|
 
 ### Spectral Indices
 
