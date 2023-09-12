@@ -62,7 +62,6 @@ The script outputs the following table from the vlass sample.
 |2|obj-3|	173.4299266|	-2473.983823|	53.73212263|	-37.42793586|
 |3|obj-4|	727.7621614|	2378.348585|	53.6105068|	-36.61971755|
 |4|obj-5|	880.2583103|	5499.500191|	53.57576913|	-36.09965396|
-|-|-------|---------|--------|------|-----|
 |.|...|...|...|...|...|
 
 If the figure function is enabled, the following figure is produced highlighting the object identification results.
