@@ -110,3 +110,7 @@ The script produces a table like the one below for each identified object.
 
 ### Spectral Indices
 
+The last capability of the script is deriving spectral indices. The spectral index measures the dependence that the radiative flux density has with the frequency, such that;
+
+$S_\nu = \nu^\alpha$
+
