@@ -65,9 +65,9 @@ The script outputs the following table from the vlass sample.
 |-|-------|---------|--------|------|-----|
 |.|...|...|...|...|...|
 
-If the figure function is enabled, the following figure is produced.
+If the figure function is enabled, the following figure is produced highlighting the object identification results.
 
-![Figure 1](https://github.com/jlsteffen/AGN-in-Mergers/blob/main/images/7959-12704.png)
+![Figure 1](https://github.com/jlsteffen/spectral_index/blob/main/figs/field.png)
 
 ### Flux Extraction
 
