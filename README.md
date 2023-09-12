@@ -146,4 +146,5 @@ The code updates the object table to the following.
 |.|...|...|...|...|...|...|
 
 An example of the SED figures is given below;
+
 ![Figure 2](https://github.com/jlsteffen/spectral_index/blob/main/figs/obj-1.png)
