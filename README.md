@@ -112,5 +112,38 @@ The script produces a table like the one below for each identified object.
 
 The last capability of the script is deriving spectral indices. The spectral index measures the dependence that the radiative flux density has with the frequency, such that;
 
-$S_\nu = \nu^\alpha$
+$S_\nu \propto \nu^\alpha$
+
+where $S_\nu$ is the radiative flux density, $\nu$ is the frequency, and $\alpha$ is the spectral index. 
+
+The code take the log of the flux and the frequency and calculates the spectral index from the slope of the line fitted to the two variables. The slope is calculated using NumPy's polyfit function which fits a polynomial function through the least squares method.
+
+The code appends the derived spectral index to the original object file. The code also optionally prints figures of each object's SED with the linear fit used to derive spectral index.
+
+An example of the operation is shown below;
+```
+# Derive Spectral indices from the extracted fluxes and frequencies.
+
+# Give the path the the table of object positions. The code will append Spectral indices to the table.
+tablepath = 'objects.csv'
+
+# Give the path to the files containing the fluxes and frequencies for the individual objects.
+objectpath = filepath+'/objects/'
+
+# Toggling fig=True will print SED's for each object
+
+spec.derive_specind.derive(tablepath=tablepath, objectpath=objectpath, fig=True)
+```
+The code updates the object table to the following.
+
+|	| objid	| xcoord	| ycoord |	ra	| dec |alpha|
+|-|-------|---------|--------|------|-----|-----|
+|0|obj-1|	272.5590045|	1334.659359|	53.70636361|	-36.79323846| -3.497495|
+|1|obj-2|	177.0944922|	5039.900904|	53.72140255|	-36.17560855| -3.381606|
+|2|obj-3|	173.4299266|	-2473.983823|	53.73212263|	-37.42793586| -1.502150|
+|3|obj-4|	727.7621614|	2378.348585|	53.6105068|	-36.61971755| -4.350426|
+|4|obj-5|	880.2583103|	5499.500191|	53.57576913|	-36.09965396| -2.975892|
+|.|...|...|...|...|...|...|
+
+An example of the SED figures is given below;
 
