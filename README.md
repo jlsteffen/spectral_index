@@ -53,6 +53,8 @@ x_win, y_win = 200, 200
 spec.findobj.finder(image = im, sigma = sigma, x_win = x_win, y_win = y_win, outpath = filepath, header=header, fig=True)
 ```
 
+The script outputs the following table from the vlass sample.
+
 |	| objid	| xcoord	| ycoord |	ra	| dec |
 |-|-------|---------|--------|------|-----|
 |0|obj-1|	272.5590045|	1334.659359|	53.70636361|	-36.79323846|
@@ -60,8 +62,12 @@ spec.findobj.finder(image = im, sigma = sigma, x_win = x_win, y_win = y_win, out
 |2|obj-3|	173.4299266|	-2473.983823|	53.73212263|	-37.42793586|
 |3|obj-4|	727.7621614|	2378.348585|	53.6105068|	-36.61971755|
 |4|obj-5|	880.2583103|	5499.500191|	53.57576913|	-36.09965396|
+|-|-------|---------|--------|------|-----|
+|.|...|...|...|...|...|
 
+If the figure function is enabled, the following figure is produced.
 
+![Figure 1](https://github.com/jlsteffen/AGN-in-Mergers/blob/main/images/7959-12704.png)
 
 ### Flux Extraction
 
