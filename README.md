@@ -118,7 +118,7 @@ where $S_\nu$ is the radiative flux density, $\nu$ is the frequency, and $\alpha
 
 The spectral index can be isolated by applying the log function on both side of the equation;
 
-$\alpha = \frac{log_{10}(S_\nu)}{og_{10}(\nu)}$
+$\alpha = \frac{log_{10}(S_\nu)}{log_{10}(\nu)}$
 
 The code takes the log of the flux and the frequency and calculates the spectral index from the slope of the line fitted to the two variables. The slope is calculated using NumPy's polyfit function which fits a polynomial function through the least squares method.
 
