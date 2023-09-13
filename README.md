@@ -7,7 +7,7 @@ A module containing class and functions for performing astronomical operations. 
 
 ### Object Identification
 
-The algorithm identifies object by searching for pixels above a given threshold in the image. The threshold in the function is given as a level of significance above the mean flux. A bitmask is created where pixels above the threshold are defined as 1 while the others are 0.
+The algorithm identifies object by searching for pixels above a given threshold in the image. The threshold is taken as a level of significance (or a multiple of sigma) above the mean flux. A bitmask is created where pixels above the threshold are defined as 1 while the others are 0.
 
 The algorithm then iteratively slides a window of a given size across the image. Within an iteration, if there is more than one pixel above the threshold, a centroiding function is applied to the frame to calculate the object center. The centroiding function is a simple center of mass type function which returns the x,y pixel coordinates of the object.
 
