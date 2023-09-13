@@ -87,7 +87,7 @@ files = dat_files
 table = pd.read_csv('objects.csv', delimiter=',', index_col=0)
 
 # Define the radius of the circular aperture to extract the fluxes from
-radius = 50
+radius = 50 # pixels
 
 # The code will write tables containing the frequencies and fluxes for each object.
 # Provide a filepath to save these table to.
