@@ -188,7 +188,7 @@ class findobj:
         None.
     
         """
-        f, ax = plt.subplots()
+        f, ax = plt.subplots(figsize=(10,10))
         
         vmin, vmax = 0, image.max() / 10
         plt.imshow(image, cmap='Greys_r', vmin=vmin, vmax=vmax)
